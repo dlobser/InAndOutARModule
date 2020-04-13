@@ -12,16 +12,17 @@ public class ExampleRaycast : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 100))
         {
             
-            Debug.DrawLine(ray.origin, hit.point);
-            Debug.Log(hit.point);
-            Debug.Log(hit.transform.name);
+            //Debug.DrawLine(ray.origin, hit.point);
+            //Debug.Log(hit.point);
+            //Debug.Log(hit.transform.name);
 
-            if(Input.GetMouseButtonDown(0)){
+            if(Input.GetMouseButtonDown(0) && hit.transform.name!="Sphere"){
                 GameObject g = Instantiate(thing);
                 g.transform.position = hit.point;
                 g.transform.LookAt(hit.point + hit.normal);
             }
 
         }
+        
     }
 }
